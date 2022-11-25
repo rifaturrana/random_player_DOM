@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="pictures">
+        <div class="messi"></div>
+        <div class="ronaldo"></div>
+        <div class="random"></div>
+      </div>
+      <div class="buttons">
+        <button class="mbtn">Click to see Messi</button>
+        <button class="cbtn">Click to see CR7</button>
+        <button class="rbtn">Click to see Random Player</button>
+      </div>
+    </div>
+
+    <script>
+      let div = document.querySelector(".pictures");
+      let hero = document.querySelector(".hero");
+      let buttons = document.querySelector(".buttons");
+      let mbtn = document.querySelector(".mbtn");
+      let cbtn = document.querySelector(".cbtn");
+      let rbtn = document.querySelector(".rbtn");
+      let messi = document.querySelector(".messi");
+      let ronaldo = document.querySelector(".ronaldo");
+      let randomPlayer = document.querySelector(".random");
+      //   div.style.marginTop = "100px";
+      div.style.display = "flex ";
+      div.style.justifyContent = "space-evenly";
+      div.style.zIndex = "1";
+      hero.style.height = "100vh";
+      hero.style.width = "100%";
+      hero.style.backgroundImage =
+        "url('http://wallpaperset.com/w/full/9/4/3/185419.jpg')";
+      hero.style.zIndex = "-1";
+      mbtn.style.zIndex = "1";
+      cbtn.style.zIndex = "1";
+      rbtn.style.zIndex = "1";
+
+      //   document.body.style.backgroundImage =
+      //     "url('http://wallpaperset.com/w/full/9/4/3/185419.jpg')";
+      //   document.body.style.backgroundSize = "cover";
+      //   document.body.style.backgroundRepeat = "no-repeat";
+
+      for (let i = 0; i < div.children.length; i++) {
+        div.children[i].style.marginTop = "100px";
+        div.children[i].style.boxShadow =
+          " rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset";
+        div.children[i].style.width = "400px";
+        div.children[i].style.height = "400px";
+        div.children[i].style.borderRadius = "5px";
+      }
+      console.log(div.children);
+
+      buttons.style.margin = "20px 0";
+      buttons.style.marginLeft = "20px";
+      buttons.style.padding = "50px";
+      buttons.style.display = "flex";
+      buttons.style.justifyContent = "space-around";
+
+      let img = document.createElement("img");
+      img.style.width = "400px";
+      img.style.height = "400px";
+      //   img.style.padding = "20px";
+
+      let messi_clctn = [
+        "https://pbs.twimg.com/media/FcpucZqXgAMd10w?format=jpg&name=900x900",
+        "https://pbs.twimg.com/media/E1hk3XPX0AEbB6u?format=jpg&name=900x900",
+        "https://images.tv9bangla.com/wp-content/uploads/2022/06/Lionel-Messi-scores-5-goal-against-Estonia.jpg?q=20",
+        "https://pbs.twimg.com/media/E8DzXebUcAUe679?format=jpg&name=900x900",
+        "https://images.sportbuzzer.de/v1/photos/raw/may-16-2021-barcelona-spain-lionel-messi-of-fc-barcelona-barca-during-the--x7309/regular-16-9",
+      ];
+      mbtn.addEventListener("click", () => {
+        let random = Math.floor(Math.random() * messi_clctn.length);
+        img.src = messi_clctn[random];
+        messi.append(img);
+      });
+      let img2 = document.createElement("img");
+      img2.style.width = "400px";
+      img2.style.height = "400px";
+      //   img2.style.padding = "20px";
+      let cr7_clctn = [
+        "https://images2.minutemediacdn.com/image/fetch/w_736,h_485,c_fill,g_auto,f_auto/https%3A%2F%2Ftheprideoflondon.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F07%2F1241125690-850x560.jpeg",
+        "https://www.juventus.com/images/image/private/t_editorial_landscape_12_desktop/f_auto/dev/nyuf6tne3npisv92zetr.jpg",
+        "https://i0.wp.com/www.fodbold-transfers.dk/wp-content/uploads/2020/08/Cristiano-Ronaldo-10-1.jpg",
+        "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ftherealchamps.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2018%2F08%2F962792886.jpeg",
+        "https://icdn.caughtoffside.com/wp-content/uploads/2022/09/leicester-0-1-united-cristiano-ronaldo.jpg",
+      ];
+      cbtn.addEventListener("click", () => {
+        let random = Math.floor(Math.random() * cr7_clctn.length);
+        img2.src = cr7_clctn[random];
+        ronaldo.append(img2);
+      });
+      let img3 = document.createElement("img");
+      img3.style.width = "400px";
+      img3.style.height = "400px";
+      //   img3.style.padding = "20px";
+      let random_player = [
+        "https://www.india.com/wp-content/uploads/2021/06/Neymar-Reuters.jpg",
+        "https://i.guim.co.uk/img/media/ed230555b5203491e2205fdb456d24f63828ce76/0_0_1000_600/500.jpg?quality=85&auto=format&fit=max&s=2ff6065d53cc12c6fd5e88968551af7d",
+        "https://images2.minutemediacdn.com/image/upload/c_crop,w_3403,h_1914,x_471,y_106/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/images/GettyImages/mmsport/90min_en_international_web/01fmsv8j6tfp724cgfyk.jpg",
+        "https://resources.premierleague.com/photos/2020/06/09/8d0f0037-9c00-4166-866b-5cb135679d37/2020-02-01T165121Z_1905305979_RC2SRE9R3CBK_RTRMADP_3_SOCCER-ENGLAND-LIV-SOU-REPORT.JPG?width=930&height=620",
+        "https://images.psg.media/media/87319/24.jpg?anchor=center&mode=crop&width=1200&height=675&quality=75",
+      ];
+      rbtn.addEventListener("click", () => {
+        let random = Math.floor(Math.random() * random_player.length);
+        img3.src = random_player[random];
+        randomPlayer.append(img3);
+      });
+    </script>
+  </body>
+</html>
